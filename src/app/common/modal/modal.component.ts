@@ -70,11 +70,10 @@ export class ModalComponent implements OnChanges, OnDestroy {
 
   doOpen(): void {
     this.attachPortal();
-    setTimeout(async () => {
-      this.trapFocus.enabled = true
-      await this.trapFocus.focusTrap.focusInitialElementWhenReady();
-      this.unhideOthers = hideOthers(this.modalPortalService.portalHost.nativeElement);
-    });
+    this.unhideOthers = hideOthers(this.modalPortalService.portalHost.nativeElement);
+
+    setTimeout(() => this.trapFocus.enabled = true);
+    setTimeout(async () => await this.trapFocus.focusTrap.focusInitialElementWhenReady(), 50);
   }
 
   doClose(): void {
