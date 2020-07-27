@@ -1,0 +1,61 @@
+<div class="bg-primary text-light p-3 mb-4">
+  <div class="container">
+    <h1 class="display-3">Examples</h1>
+    <p class="lead">So we've talked in depth about modals, and screen readers. Lets play with some.</p>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-12 col-md-4 mb-3">
+      <div class="card h-100 bg-light text-dark">
+        <div class="card-header">
+          Modal
+        </div>
+        <div class="card-body">
+          <p>
+            On our modal we're expecting functionality that it opens on top of the page, moves keyboard (and screen
+            reader) focus into it, and that the focus can't escape out.
+          </p>
+        </div>
+        <div class="card-footer">
+          <a routerLink="single-modal" class="card-link">Modal Example</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-4 mb-3">
+      <div class="card h-100 bg-light text-dark">
+        <div class="card-header">
+          Dialog
+        </div>
+        <div class="card-body">
+          <p>
+            A dialog is similar functionally to a modal, except it doesnt have the ability to be closed by the user.
+          </p>
+          <p>
+            The user fundamentally needs to interact with content in the modal to be able to close it.
+          </p>
+        </div>
+        <div class="card-footer">
+          <a routerLink="dialog" class="card-link">Dialog Example</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-4 mb-3">
+      <div class="card h-100 bg-light text-dark">
+        <div class="card-header">
+          Interstitial
+        </div>
+        <div class="card-body">
+          <p>
+            Interstitial modals are quite the different beast, they're opened and closed programmatically without user
+            interaction. Usually after a fixed amount of time.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

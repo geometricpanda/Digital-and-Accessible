@@ -4,6 +4,7 @@ import {ModalComponent} from './modal.component';
 import {ModalTitleDirective} from './modal-title.directive';
 import {ModalFooterDirective} from './modal-footer.directive';
 import {A11yModule} from '@angular/cdk/a11y';
+import {PortalModule} from '@angular/cdk/portal';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import {A11yModule} from '@angular/cdk/a11y';
   imports: [
     CommonModule,
     A11yModule,
+    PortalModule,
   ],
   exports: [
     ModalComponent,

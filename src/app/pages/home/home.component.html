@@ -1,0 +1,214 @@
+<div class="bg-primary text-light p-3 mb-4">
+  <div class="container">
+    <h1 class="display-3">Welcome to Accessible Modals</h1>
+    <p class="lead">An experiment in making modals truly accessible on all modern web based platforms.</p>
+  </div>
+</div>
+
+<main class="container">
+  <h2 class="mb-3">What's the problem with modals?</h2>
+
+  <p>
+    I guess the first problem with modals, maybe the most fundamental problem, is that they don't actually work
+    how you'd expect them to.
+  </p>
+
+  <p>
+    When defining a modal you need to think about the functionality:
+  </p>
+
+  <ul>
+    <li>A modal should open on top of content.</li>
+    <li>A modal should capture user focus.</li>
+    <li>A modal may have an optional backdrop to fade out content behind.</li>
+  </ul>
+
+  <p>
+    But then you need to go a step further and think about the use cases of a modal and realise that you've got a few
+    different patterns at play.
+  </p>
+
+  <div class="row mb-2">
+    <div class="col-12 col-md-4 mb-3">
+      <div class="card h-100 text-dark bg-light">
+        <div class="card-body">
+          <h5 class="card-title">Modal</h5>
+          <p class="card-text">
+            A modal is used to reveal additional content to a user, this means that it should be dismissible
+            either through a close button, clicking on a backdrop, or pressing the Escape key.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-4 mb-3">
+      <div class="card h-100 text-dark bg-light">
+        <div class="card-body">
+          <h5 class="card-title">Dialog</h5>
+          <p class="card-text">
+            A dialog is used to prevent the user from proceeding unless they perform a specific action. One example of
+            this could be a Save / Exit confirmation.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-4 mb-3">
+      <div class="card h-100 text-dark bg-light">
+        <div class="card-body">
+          <h5 class="card-title">Interstitial</h5>
+          <p class="card-text">
+            An interstitial is usually used to "entertain" your users whilst something happens, you've probably seen
+            this in a banking app when making a payment.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p>
+    Each of these patterns has a unique set of functional requirements, and whilst they share a common set of
+    accessibility requirements, you have to consider each one and their use case.
+  </p>
+
+  <p>
+    As no-one seems to have done this right, I know I certainly haven't, W3C have introduced the
+    <code>&lt;dialog&gt;</code> element. But even that doesn't get you there. Throughout the rest of this experiment
+    I won't be using the <code>&lt;dialog&gt;</code> element, as it doesn't have great cross browser support, and
+    the Polyfill which the Google Chrome team have developed seems to make matters worse, not better.
+  </p>
+
+  <h2 class="mb-3">And then there's screen readers</h2>
+
+  <p>
+    Of course, simply having a modal which appears on top of content and traps users in a focus lock preventing
+    any actions happening outside of what you'd expect isn't enough. We <strong>MUST</strong> make sure that vulnerable
+    users get the same behaviours.
+  </p>
+
+  <p>
+    Whether they're using a screen reader because they're partially sighted, or whether they have motor impairments,
+    your vulnerable customers deserve equal treatment. BUT... then you've got the challenge of screen readers.
+  </p>
+
+  <div class="row">
+
+    <div class="col-12 col-md-6 mb-3">
+      <div class="card bg-light h-100 text-dark">
+        <div class="card-body">
+          <h4 class="card-title">JAWS</h4>
+          <p>
+            It's the de facto standard for Windows, this may be more for historic reasons than functional ones, however
+            JAWS has this great quirk which means it behaves differently depending on which version number you're using.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-6 mb-3">
+      <div class="card bg-light h-100 text-dark">
+        <div class="card-body">
+          <h4 class="card-title">NVDA</h4>
+          <p>
+            I guess as a response to the rather high price tag attached to JAWS, NVDA was developed as an open source
+            project, it's comprehensive and has a nifty developer tool allowing you to read what it's speaking, saving
+            you from the never ending sound of a generated voice.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-6 mb-3">
+      <div class="card bg-light h-100 text-dark ">
+        <div class="card-body">
+          <h4 class="card-title">VoiceOver</h4>
+          <p>
+            Apple's fantastic screen reader with bundles of functionality across all of their devices, which of course
+            behaves differently depending which version of MacOS you're on, and of course which version of iOS you're
+            on, and completely differently on your Mac vs an iPhone, and even differently between Safari on Mac and
+            Chrome on Mac, with no reliable iOS simulator.</p>
+
+          <p>And lets not even get to the fact that the MacOS shortcut key is on the touch bar.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-6 mb-3">
+      <div class="card bg-light h-100 text-dark">
+        <div class="card-body">
+          <h4 class="card-title">TalkBack</h4>
+          <p>
+            The Android screen reader which absolutely behaves completely differently depending on Android version,
+            which device you're using, which app you're using, and frankly if it feels like behaving that day.</p>
+          <p>
+            Personally, I've found it pretty solid when developing and testing with it, but as I don't use it day-in
+            day-out I simply have to defer to what I'm told.</p>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+  <p>
+    Surely, when developing these screen readers, they'd cast a thought towards the web and have the screen reader
+    track what the user has focus on, maybe even work with the W3C to get some features built into the spec specifically
+    for screen readers ... that'd be novel!
+  </p>
+
+  <h2 class="mb-3">Okay, I've painted a pretty bleak picture, but dont lose hope.</h2>
+
+  <p>
+    Whilst it sounds like all is lost, and by no means will the following fix all defects across this staggering
+    array of devices, it turns out there are a number of things you can do.
+  </p>
+
+  <ol>
+    <li class="mb-3">
+      Thankfully both Angular (via the
+      <a href="https://material.angular.io/cdk/portal/overview" rel="nofollow noopener noreferrer" target="_blank">
+        Angular CDK</a>) and
+      <a href="https://reactjs.org/docs/portals.html" rel="nofollow noopener noreferrer" target="_blank">React</a>
+      have the ability to portal your components elsewhere in the DOM
+      tree, allowing you to put your modal in a sensible place... the end of the document.
+    </li>
+    <li class="mb-3">
+      Again, Frameworks to the rescue, both Angular (via the
+      <a href="https://material.angular.io/cdk/a11y/overview" rel="nofollow noopener noreferrer" target="_blank">
+        Angular CDK</a>) and React (via
+      <a href="https://github.com/theKashey/react-focus-lock/issues" rel="nofollow noopener noreferrer" target="_blank">
+        React-Focus-Lock</a>) have the ability to focus lock your modal. If a user tries to escape, they get pulled
+      right back in.
+    </li>
+    <li class="mb-3">
+      When your Modal is open, make everything <code>aria-hidden="true"</code> except for your modal, this means that
+      even if the screen reader fails to get focus into your modal, the only place the user can go is into the modal.
+      There's a great package
+      <a href="https://github.com/theKashey/aria-hidden" rel="nofollow noopener noreferrer" target="_blank">
+        Aria Hidden</a> which can help you with
+      that, and as it's Vanilla.js&trade; it'll work anywhere you need it.
+    </li>
+    <li class="mb-3">
+      ALWAYS have a focusable item, it doesnt need to visually look different, but something such as a button, or
+      even a <code>&lt;span&gt;</code> with <code>tabindex="-1"</code> will suffice, and when your modal opens, focus
+      on that item.
+    </li>
+    <li class="mb-3">
+      If you don't need a user to interact, such as an interstitial, use an <code>aria-live</code> region to announce
+      to your users what's going on.
+    </li>
+    <li class="mb-3">
+      Combine <code>role="dialog"</code> and <code>aria-modal="true"</code> for maximum reachability.
+    </li>
+    <li class="mb-3">
+      Add <code>aria-hidden="true"</code> to the element containing your backdrop, should you have one.
+    </li>
+    <li class="mb-3">
+      When a modal opens because a user has clicked something, make sure they're returned to the same location.
+    </li>
+  </ol>
+
+  <p>
+    So if you check out the <a routerLink="/examples">Examples</a> page, you'll find examples of a few patterns of
+    modals with various
+    functionality included, and the result of cross device testing.
+  </p>
+
+</main>

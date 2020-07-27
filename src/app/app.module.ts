@@ -2,7 +2,9 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
-import {ModalModule} from './common/modal/modal.module';
+import {AppRoutingModule} from './app-routing.module';
+import {HeaderModule} from './common/header/header.module';
+import {ModalPortalModule} from './common/modal-portal/modal-portal.module';
 
 @NgModule({
   declarations: [
@@ -10,7 +12,9 @@ import {ModalModule} from './common/modal/modal.module';
   ],
   imports: [
     BrowserModule,
-    ModalModule,
+    AppRoutingModule,
+    HeaderModule,
+    ModalPortalModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

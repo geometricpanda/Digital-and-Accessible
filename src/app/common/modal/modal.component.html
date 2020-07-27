@@ -1,26 +1,44 @@
-<div [attr.aria-hidden]="!open"
-     class="modal"
-     [class.modal--open]="open"
-     aria-modal="true"
-     role="dialog"
-     cdkTrapFocus>
+<!--  <div class="modal__backdrop" (click)="emitClose()" aria-hidden="true"></div>-->
+<ng-template #modalPortalContent>
+  <div #modalWrapper
+       (click)="clickBackdrop($event)"
+       [attr.aria-hidden]="!open"
+       [class.show]="open"
+       aria-labelledby="staticBackdropLabel"
+       aria-modal="true"
+       cdkTrapFocus
+       class="modal fade"
+       id="staticBackdrop"
+       role="dialog">
 
-  <div class="modal__backdrop" (click)="emitClose()" aria-hidden="true"></div>
+    <div class="modal-dialog modal-dialog-scrollable">
 
+      <div class="modal-content">
 
-  <div class="modal__body">
+        <div class="modal-header">
+          <div class="modal-title" cdkFocusInitial tabindex="-1" id="staticBackdropLabel">
+            <ng-content select="[appModalTitle]"></ng-content>
+          </div>
+          <button type="button" class="close" aria-label="Close" (click)="emitClose()" *ngIf="!isDialog">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
 
-    <div class="modal__title" cdkFocusInitial tabindex="-1" *ngIf="title">
-      <span><ng-content select="[appModalTitle]"></ng-content></span>
-    </div>
+        <div class="modal-body">
+          <ng-content></ng-content>
+        </div>
 
-    <div class="modal__content">
-      <ng-content></ng-content>
-    </div>
+        <div class="modal-footer" *ngIf="footer">
+          <ng-content select="[appModalFooter]"></ng-content>
+        </div>
+      </div>
 
-    <div class="modal__footer" *ngIf="footer">
-      <ng-content select="[appModalFooter]"></ng-content>
     </div>
   </div>
 
-</div>
+  <div *ngIf="showBackdrop"
+       [class.show]="open"
+       aria-hidden="true"
+       class="modal-backdrop fade"></div>
+
+</ng-template>

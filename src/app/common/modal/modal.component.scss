@@ -1,79 +1,16 @@
 .modal {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: rgba(0, 0, 0, 0.9);
-  z-index: 99;
   display: block;
+}
+
+.fade:not(.show) {
   visibility: hidden;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
 }
 
-.modal--open {
-  opacity: 1;
-  display: block;
-  visibility: visible;
-}
-
-.modal__body {
-  background-color: white;
-  box-sizing: border-box;
-
+.modal-dialog {
+  max-height: calc(100vh - 168px);
   display: flex;
-  flex-direction: column;
-
-  position: absolute;
-  left: 50%;
-  top: 5vh;
-  transform: translateX(-50%);
-
-  width: 80vw;
-  max-height: 80vh;
-
-  padding: 20px 10px 20px 20px;
-  border-radius: 10px;
-
 }
 
-
-
-/* only following this method as it's what the angular team did in App Component */
-@media screen and (min-width: 767px) {
-  .modal__body {
-    top: 15vh;
-    max-width: 40vw;
-    max-height: 90vh;
-  }
-}
-
-
-.modal__title {
-  display: inline-flex;
-  font-size: 1.8rem;
-  margin-bottom: 20px;
+.modal-title:focus {
   outline: none;
-}
-
-.modal__title span {
-  border-bottom: 2px solid transparent;
-}
-
-.modal__title:focus span {
-  border-bottom-color: #1976d2;
-}
-
-.modal__content {
-  overflow: auto;
-  padding-right: 10px;
-}
-
-.modal__content ::ng-deep p {
-  margin-bottom: 0.8rem;
-}
-
-.modal__footer {
-  margin-top: 0.8rem;
 }

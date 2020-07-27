@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+  <div class="container-fluid">
+
+    <a class="navbar-brand" routerLink="/">Accessible Modals</a>
+
+    <button (click)="toggleNav()"
+            [attr.aria-expanded]="navOpen"
+            aria-controls="navbarNavAltMarkup"
+            aria-label="Toggle navigation"
+            class="navbar-toggler"
+            type="button">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbarNavAltMarkup" class="navbar-collapse collapse" [class.show]="navOpen">
+      <div class="navbar-nav">
+        <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+        <a class="nav-link" routerLink="/examples" routerLinkActive="active">Examples</a>
+        <a class="nav-link" routerLink="/credits" routerLinkActive="active">Credits</a>
+      </div>
+    </div>
+
+
+  </div>
+</nav>
+
