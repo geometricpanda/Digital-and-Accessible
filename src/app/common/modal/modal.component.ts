@@ -35,6 +35,7 @@ export class ModalComponent implements OnChanges {
   @ViewChild('modal') modalElem: ElementRef<HTMLDivElement>;
 
   @Input() open = false;
+  @Input() returnFocus: HTMLBaseElement;
   @Output() close = new EventEmitter<MouseEvent>()
 
   private unhideOthers: () => void;
@@ -67,6 +68,9 @@ export class ModalComponent implements OnChanges {
       this.trapFocus.enabled = false;
       this.unhideOthers();
       this.trapFocus.focusTrap.destroy();
+      if (this.returnFocus) {
+        this.returnFocus.focus();
+      }
     }
   }
 
