@@ -11,7 +11,7 @@ import {ModalPortalModule} from './common/modal-portal/modal-portal.module';
     AppComponent,
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     HeaderModule,
     ModalPortalModule,

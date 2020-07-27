@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/8487f699-c073-436f-bc54-7f1ba8dac6f5/deploy-status)](https://app.netlify.com/sites/safari-voiceover-modal/deploys)
+
 # AngularModalTest
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.0.
