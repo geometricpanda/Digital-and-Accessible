@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-modal-test';
+
+  modal = false;
+
+  showModal() {
+    this.modal = true;
+  }
+
+  hideModal() {
+    this.modal = false;
+  }
 }

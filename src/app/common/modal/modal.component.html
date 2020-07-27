@@ -1,0 +1,25 @@
+<div [attr.aria-hidden]="!open"
+     class="modal"
+     [class.modal--open]="open"
+     aria-modal="true"
+     role="dialog"
+     cdkTrapFocus>
+
+  <div class="modal__backdrop" (click)="emitClose()" aria-hidden="true"></div>
+
+  <div class="modal__body">
+
+    <div class="modal__title" cdkFocusInitial tabindex="-1" *ngIf="title">
+      <span><ng-content select="[appModalTitle]"></ng-content></span>
+    </div>
+
+    <div class="modal__content">
+      <ng-content></ng-content>
+    </div>
+
+    <div class="modal__footer" *ngIf="footer">
+      <ng-content select="[appModalFooter]"></ng-content>
+    </div>
+  </div>
+
+</div>
