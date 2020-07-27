@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, ViewChild, ViewContainerRef} from '@angular/core';
 import {ModalPortalService} from './modal-portal.service';
 
 @Component({
@@ -8,12 +8,14 @@ import {ModalPortalService} from './modal-portal.service';
 })
 export class ModalPortalComponent implements AfterViewInit {
 
+  @ViewChild('templatePortalRef') templatePortalRef: ViewContainerRef;
 
   constructor(public modalPortalService: ModalPortalService,
               private elRef: ElementRef) {
   }
 
   ngAfterViewInit(): void {
+    this.modalPortalService.templatePortalRef = this.templatePortalRef;
     this.modalPortalService.portalHost = this.elRef;
   }
 

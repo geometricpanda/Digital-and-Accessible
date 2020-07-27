@@ -37,7 +37,9 @@ export class ModalComponent implements OnChanges, OnDestroy {
   @Input() open = false;
   @Input() returnFocusTo: HTMLButtonElement | HTMLAnchorElement;
   @Input() showBackdrop = true;
-  @Output() close = new EventEmitter<MouseEvent>()
+  @Output() close = new EventEmitter<MouseEvent>();
+
+  templatePortal: TemplatePortal;
 
   @HostListener('window:keydown', ['$event'])
   onKeyPress($event: KeyboardEvent) {
@@ -63,18 +65,11 @@ export class ModalComponent implements OnChanges, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    if (this.modalPortalService.templatePortal.isAttached) {
-      this.modalPortalService.templatePortal.detach()
-    }
+    this.detachPortal();
   }
 
   doOpen(): void {
-
-    this.modalPortalService.templatePortal = new TemplatePortal(
-      this.modalPortalContent,
-      this.modalPortalService.templatePortalRef,
-    );
-
+    this.attachPortal();
     setTimeout(async () => {
       this.trapFocus.enabled = true
       await this.trapFocus.focusTrap.focusInitialElementWhenReady();
@@ -87,9 +82,25 @@ export class ModalComponent implements OnChanges, OnDestroy {
       this.trapFocus.enabled = false;
       this.unhideOthers();
       this.trapFocus.focusTrap.destroy();
-      if (this.returnFocusTo) {
-        this.returnFocusTo.focus();
-      }
+    }
+
+    this.detachPortal();
+
+    if (this.returnFocusTo) {
+      this.returnFocusTo.focus();
+      this.returnFocusTo.scrollIntoView();
+    }
+  }
+
+  attachPortal() {
+    this.detachPortal();
+    this.templatePortal = new TemplatePortal(this.modalPortalContent, this.modalPortalService.templatePortalRef);
+    this.modalPortalService.templatePortal = this.templatePortal;
+  }
+
+  detachPortal() {
+    if (this.templatePortal?.isAttached) {
+      this.templatePortal.detach();
     }
   }
 
