@@ -4,6 +4,6 @@
 /modals/multiple-modals
 /modals/dialog
 /lists
-/lists/ordered-lists
-/lists/unordered-lists
-/lists/description-lists
+/lists/ordered-list
+/lists/unordered-list
+/lists/description-list
