@@ -11,12 +11,12 @@ const home: Route = {
 };
 
 const singleModal: Route = {
-  path: 'modals-single-modal',
+  path: 'single-modal',
   component: ModalsSingleModalComponent,
 };
 
 const multipleModals: Route = {
-  path: 'modals-multiple-modals',
+  path: 'multiple-modals',
   component: ModalsMultipleModalsComponent,
 };
 
