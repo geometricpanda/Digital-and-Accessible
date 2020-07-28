@@ -9,51 +9,98 @@
       These are our most complicated form of list, as a description list allows you to define key value pairs.
     </p>
 
+    <p>
+      The problem is that Safari Voiceover doesn't support this tyle of list, as such you have to "hack it" into
+      behaving like a table.
+    </p>
+
+
   </div>
 </div>
 
 <div class="container">
 
+  <p>
+    This can be achieved by firstly adding a <code>row="table"</code> to the outermost <code>&lt;dl&gt;</code> tag.
+  </p>
+
+  <p>
+    For each term you wish to define, you then need to wrap it, and the definitions in a
+    <code>&lt;div role="row"&gt;</code> tag.
+  </p>
+
+  <p>
+    The term then needs <code>role="rowheader"</code> applied to it, and each definition then needs
+    <code>role="cell"</code> applied.
+  </p>
+
+  <hr class="my-5"/>
+
   <p>For example, a Single Definition:</p>
 
-  <dl class="row mb-5">
-    <dt class="col-sm-3">Apple</dt>
-    <dd class="col-sm-9">The round fruit of a tree of the rose family, which typically has thin green or red skin and crisp flesh.</dd>
+  <dl class="mb-5" role="table">
+    <div class="row" role="row">
+      <dt class="col-sm-3" role="rowheader">Apple</dt>
+      <dd class="col-sm-9" role="cell">The round fruit of a tree of the rose family, which typically has thin green or
+        red skin and
+        crisp flesh.
+      </dd>
+    </div>
   </dl>
 
   <p>They can also have multiple definitions of the same term:</p>
 
-  <dl class="row mb-5">
-    <dt class="col-sm-3">Banana</dt>
-    <dd class="col-sm-9">A long curved fruit which grows in clusters and has soft pulpy flesh and yellow skin when ripe.</dd>
-    <dd class="col-sm-9 offset-sm-3">The tropical and subtropical palmlike plant that bears bananas, having very large leaves but lacking a woody
-      trunk.
-    </dd>
+  <dl class="mb-5" role="table">
+    <div class="row" role="row">
+      <dt class="col-sm-3" role="rowheader">Banana</dt>
+      <dd class="col-sm-9" role="cell">A long curved fruit which grows in clusters and has soft pulpy flesh and yellow
+        skin when
+        ripe.
+      </dd>
+      <dd class="col-sm-9 offset-sm-3" role="cell">The tropical and subtropical palmlike plant that bears bananas,
+        having very large
+        leaves but lacking a woody
+        trunk.
+      </dd>
+    </div>
   </dl>
 
   <p>This can be taken further to allow multiple terms:</p>
 
-  <dl class="row mb-5">
-    <dt class="col-sm-3">Cherry</dt>
-    <dd class="col-sm-9">A small, soft round stone fruit that is typically bright or dark red.</dd>
-    <dt class="col-sm-3">Damson</dt>
-    <dd class="col-sm-9">Also called damson plum. the small, dark-blue or purple fruit of a plum, Prunus insititia, of the rose family,
-      introduced into Europe from Asia Minor.
-    </dd>
+  <dl class="mb-5" role="table">
+    <div class="row" role="row">
+      <dt class="col-sm-3" role="rowheader">Cherry</dt>
+      <dd class="col-sm-9" role="cell">A small, soft round stone
+        fruit
+        that is typically bright or dark red.
+      </dd>
+    </div>
+    <div class="row" role="row">
+      <dt class="col-sm-3" role="rowheader">Damson</dt>
+      <dd class="col-sm-9" role="cell">Also called damson plum. the small, dark-blue or purple fruit of a plum, Prunus
+        insititia, of
+        the rose family,
+        introduced into Europe from Asia Minor.
+      </dd>
+    </div>
   </dl>
 
   <p>And finally allowing multiple terms with multiple definitions</p>
 
-  <dl class="row mb-5">
-    <dt class="col-sm-3">Elderberry</dt>
-    <dd class="col-sm-9">The bluish-black or red berry of the elder, used for making jelly or wine.</dd>
-    <dd class="col-sm-9 offset-sm-3">An elder tree or shrub.</dd>
+  <dl class="mb-5" role="table">
+    <div class="row" role="row">
+      <dt class="col-sm-3" role="rowheader">Elderberry</dt>
+      <dd class="col-sm-9" role="cell">The bluish-black or red berry of the elder, used for making jelly or wine.</dd>
+      <dd class="col-sm-9 offset-sm-3" role="cell">An elder tree or shrub.</dd>
+    </div>
 
-    <dt class="col-sm-3">Fig</dt>
-    <dd class="col-sm-9">
-      Any tree or shrub belonging to the genus Ficus, of the mulberry family, especially a small tree, F. carica,
-      native to southwestern Asia, bearing a turbinate or pear-shaped fruit that is eaten fresh, preserved, or dried.
-    </dd>
-    <dd class="col-sm-9 offset-sm-3">The fruit of such a tree or shrub, or of any related species.</dd>
+    <div class="row" role="row">
+      <dt class="col-sm-3" role="rowheader">Fig</dt>
+      <dd class="col-sm-9" role="cell">
+        Any tree or shrub belonging to the genus Ficus, of the mulberry family, especially a small tree, F. carica,
+        native to southwestern Asia, bearing a turbinate or pear-shaped fruit that is eaten fresh, preserved, or dried.
+      </dd>
+      <dd class="col-sm-9 offset-sm-3" role="cell">The fruit of such a tree or shrub, or of any related species.</dd>
+    </div>
   </dl>
 </div>

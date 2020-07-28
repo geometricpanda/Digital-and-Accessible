@@ -13,17 +13,17 @@ const home: Route = {
 const orderedList: Route = {
   path: 'ordered-list',
   component: ListOrderedListComponent,
-}
+};
 
 const unorderedList: Route = {
   path: 'unordered-list',
   component: ListUnorderedListComponent,
-}
+};
 
 const descriptionList: Route = {
   path: 'description-list',
   component: ListDescriptionListComponent,
-}
+};
 
 
 const routes: Routes = [
