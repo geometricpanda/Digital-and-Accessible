@@ -1,20 +1,20 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {ExamplesComponent} from './examples.component';
+import {ModalsInterstitialComponent} from './modals-interstitial.component';
 
-describe('ExamplesComponent', () => {
-  let component: ExamplesComponent;
-  let fixture: ComponentFixture<ExamplesComponent>;
+describe('InterstitialComponent', () => {
+  let component: ModalsInterstitialComponent;
+  let fixture: ComponentFixture<ModalsInterstitialComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ExamplesComponent ]
+      declarations: [ ModalsInterstitialComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ExamplesComponent);
+    fixture = TestBed.createComponent(ModalsInterstitialComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

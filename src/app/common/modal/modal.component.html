@@ -4,11 +4,11 @@
        (click)="clickBackdrop($event)"
        [attr.aria-hidden]="!open"
        [class.show]="open"
-       aria-labelledby="staticBackdropLabel"
+       [attr.aria-labelledby]="id + 'label'"
        aria-modal="true"
        cdkTrapFocus
        class="modal fade"
-       id="staticBackdrop"
+       [id]="id"
        role="dialog">
 
     <div class="modal-dialog modal-dialog-scrollable">
@@ -16,12 +16,15 @@
       <div class="modal-content">
 
         <div class="modal-header">
-          <div class="modal-title" cdkFocusInitial tabindex="-1" id="staticBackdropLabel">
+
+          <div class="modal-title no-focus-outline" cdkFocusInitial tabindex="-1" [id]="id + 'label'">
             <ng-content select="[appModalTitle]"></ng-content>
           </div>
+
           <button type="button" class="close" aria-label="Close" (click)="emitClose()" *ngIf="!isDialog">
             <span aria-hidden="true">&times;</span>
           </button>
+
         </div>
 
         <div class="modal-body">

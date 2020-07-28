@@ -1,20 +1,20 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {MultipleModalsComponent} from './multiple-modals.component';
+import {ModalsHomeComponent} from './modals-home.component';
 
-describe('MultipleModalsComponent', () => {
-  let component: MultipleModalsComponent;
-  let fixture: ComponentFixture<MultipleModalsComponent>;
+describe('ExamplesComponent', () => {
+  let component: ModalsHomeComponent;
+  let fixture: ComponentFixture<ModalsHomeComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MultipleModalsComponent ]
+      declarations: [ ModalsHomeComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MultipleModalsComponent);
+    fixture = TestBed.createComponent(ModalsHomeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -20,6 +20,8 @@ import {hideOthers} from 'aria-hidden';
 import {ModalPortalService} from '../modal-portal/modal-portal.service';
 import {TemplatePortal} from '@angular/cdk/portal';
 
+let instanceId = 0;
+
 @Component({
   selector: 'app-modal',
   templateUrl: './modal.component.html',
@@ -27,40 +29,41 @@ import {TemplatePortal} from '@angular/cdk/portal';
 })
 export class ModalComponent implements OnChanges, OnDestroy {
 
+  constructor(private elRef: ElementRef,
+              private modalPortalService: ModalPortalService) {
+  }
+
   @ContentChild(ModalTitleDirective) title: ModalTitleDirective;
   @ContentChild(ModalFooterDirective) footer: ModalFooterDirective;
   @ViewChild(CdkTrapFocus) trapFocus: CdkTrapFocus;
   @ViewChild('modalPortalContent') modalPortalContent: TemplateRef<unknown>;
-  @ViewChild('modalWrapper') modalWrapper: ElementRef<HTMLDivElement>
+  @ViewChild('modalWrapper') modalWrapper: ElementRef<HTMLDivElement>;
 
   @Input() isDialog = false;
   @Input() open = false;
   @Input() returnFocusTo: HTMLButtonElement | HTMLAnchorElement;
   @Input() showBackdrop = true;
-  @Output() close = new EventEmitter<MouseEvent>();
+  @Input() id = `modal-${instanceId++}`;
+  @Output() doClose = new EventEmitter<MouseEvent>();
 
   templatePortal: TemplatePortal;
 
+  private unhideOthers: () => void;
+
   @HostListener('window:keydown', ['$event'])
-  onKeyPress($event: KeyboardEvent) {
+  onKeyPress($event: KeyboardEvent): void {
     if ($event.key === 'Escape' && !this.isDialog) {
       this.emitClose();
     }
   }
 
-  private unhideOthers: () => void;
-
-  constructor(private elRef: ElementRef,
-              private modalPortalService: ModalPortalService) {
-  }
-
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.open?.currentValue) {
-      this.doOpen();
+      this.attachAndOpen();
     }
     if (!changes.open?.currentValue && !changes.open?.isFirstChange()) {
-      this.doClose();
+      this.closeAndDetach();
     }
   }
 
@@ -68,7 +71,7 @@ export class ModalComponent implements OnChanges, OnDestroy {
     this.detachPortal();
   }
 
-  doOpen(): void {
+  attachAndOpen(): void {
     this.attachPortal();
     this.unhideOthers = hideOthers(this.modalPortalService.portalHost.nativeElement);
 
@@ -76,7 +79,7 @@ export class ModalComponent implements OnChanges, OnDestroy {
     setTimeout(async () => await this.trapFocus.focusTrap.focusInitialElementWhenReady(), 50);
   }
 
-  doClose(): void {
+  closeAndDetach(): void {
     if (this.trapFocus.focusTrap.hasAttached()) {
       this.trapFocus.enabled = false;
       this.unhideOthers();
@@ -91,19 +94,19 @@ export class ModalComponent implements OnChanges, OnDestroy {
     }
   }
 
-  attachPortal() {
+  attachPortal(): void {
     this.detachPortal();
     this.templatePortal = new TemplatePortal(this.modalPortalContent, this.modalPortalService.templatePortalRef);
     this.modalPortalService.templatePortal = this.templatePortal;
   }
 
-  detachPortal() {
+  detachPortal(): void {
     if (this.templatePortal?.isAttached) {
       this.templatePortal.detach();
     }
   }
 
-  clickBackdrop($event: MouseEvent) {
+  clickBackdrop($event: MouseEvent): void {
     if (this.modalWrapper.nativeElement === $event.target && !this.isDialog) {
       this.emitClose();
     }
@@ -111,7 +114,7 @@ export class ModalComponent implements OnChanges, OnDestroy {
 
   emitClose(): void {
     if (this.open) {
-      this.close.emit();
+      this.doClose.emit();
     }
   }
 

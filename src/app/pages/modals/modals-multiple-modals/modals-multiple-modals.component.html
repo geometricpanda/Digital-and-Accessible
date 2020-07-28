@@ -10,7 +10,7 @@
     </p>
 
     <p>
-      Whilst the modal is open, you wont be able to leave it unless you dismiss it by clicking on the close button
+      Whilst the modal is open, you wont be able to leave it unless you dismiss it by clicking on the doClose button
       or the background.
     </p>
 
@@ -23,7 +23,7 @@
 
 
 <app-modal [open]="modalState[0]"
-           (close)="closeModal(0)"
+           (doClose)="closeModal(0)"
            [returnFocusTo]="triggerFirst"
            [showBackdrop]="true">
 
@@ -45,7 +45,7 @@
 
 
 <app-modal [open]="modalState[1]"
-           (close)="closeModal(1)"
+           (doClose)="closeModal(1)"
            [returnFocusTo]="triggerSecond"
            [showBackdrop]="true">
 
@@ -68,7 +68,7 @@
 
 
 <app-modal [open]="modalState[2]"
-           (close)="closeModal(2)"
+           (doClose)="closeModal(2)"
            [returnFocusTo]="triggerThird"
            [showBackdrop]="true">
 

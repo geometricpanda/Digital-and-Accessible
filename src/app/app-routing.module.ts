@@ -4,23 +4,29 @@ import {NgModule} from '@angular/core';
 const home: Route = {
   path: '',
   pathMatch: 'full',
-  loadChildren: () => import('./pages/home/home.module').then(home => home.HomeModule),
-}
+  loadChildren: () => import('./pages/home/home.module').then(mod => mod.HomeModule),
+};
 
-const examples: Route = {
-  path: 'examples',
-  loadChildren: () => import('./pages/examples/examples.module').then(examples => examples.ExamplesModule),
-}
+const modals: Route = {
+  path: 'modals',
+  loadChildren: () => import('./pages/modals/modals.module').then(mod => mod.ModalsModule),
+};
+
+const definitionLists: Route = {
+  path: 'lists',
+  loadChildren: () => import('./pages/lists/lists.module').then(mod => mod.ListsModule),
+};
 
 const routes: Routes = [
   home,
-  examples,
-]
+  modals,
+  definitionLists,
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
-    initialNavigation: 'enabled'
-})],
+    initialNavigation: 'enabled',
+  })],
   exports: [RouterModule],
 })
 export class AppRoutingModule {

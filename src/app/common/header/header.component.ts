@@ -9,27 +9,27 @@ import {filter, tap} from 'rxjs/operators';
 })
 export class HeaderComponent {
 
-  @HostBinding('class.d-block') _hostDisplayBlock = true;
-  @HostBinding('class.sticky-top') _hostStickyTop = true;
+  @HostBinding('class.d-block') hostDisplayBlock = true;
+  @HostBinding('class.sticky-top') hostStickyTop = true;
 
   navOpen = false;
 
   routeChange = this.router.events
     .pipe(filter((event) => event instanceof NavigationEnd))
-    .subscribe(() => this.closeNav())
+    .subscribe(() => this.closeNav());
 
   constructor(private router: Router) {
   }
 
-  openNav() {
+  openNav(): void {
     this.navOpen = true;
   }
 
-  closeNav() {
+  closeNav(): void {
     this.navOpen = false;
   }
 
-  toggleNav() {
+  toggleNav(): void {
     this.navOpen
       ? this.closeNav()
       : this.openNav();

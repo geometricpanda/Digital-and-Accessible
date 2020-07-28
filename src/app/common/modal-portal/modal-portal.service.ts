@@ -13,6 +13,6 @@ export class ModalPortalService {
   templatePortal: TemplatePortal;
 
   /* Used to apply aria hidden */
-  portalHost: ElementRef<HTMLElement>
+  portalHost: ElementRef<HTMLElement>;
 
 }

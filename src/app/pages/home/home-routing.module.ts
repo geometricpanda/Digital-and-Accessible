@@ -6,7 +6,7 @@ const home: Route = {
   path: '',
   pathMatch: 'full',
   component: HomeComponent,
-}
+};
 
 const routes: Routes = [
   home,
