@@ -1,4 +1,5 @@
 /
-/examples
-/examples/single-modal
-/examples/dialog
+/modals
+/modals/single-modal
+/modals/multiple-modals
+/modals/dialog
