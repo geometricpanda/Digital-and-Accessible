@@ -1,14 +1,13 @@
-<!--  <div class="modal__backdrop" (click)="emitClose()" aria-hidden="true"></div>-->
 <ng-template #modalPortalContent>
   <div #modalWrapper
        (click)="clickBackdrop($event)"
        [attr.aria-hidden]="!open"
-       [class.show]="open"
        [attr.aria-labelledby]="id + 'label'"
+       [class.show]="open"
+       [id]="id"
        aria-modal="true"
        cdkTrapFocus
        class="modal fade"
-       [id]="id"
        role="dialog">
 
     <div class="modal-dialog modal-dialog-scrollable">

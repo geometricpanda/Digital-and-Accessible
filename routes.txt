@@ -7,3 +7,5 @@
 /lists/ordered-list
 /lists/unordered-list
 /lists/description-list
+/inputs
+/inputs/radios

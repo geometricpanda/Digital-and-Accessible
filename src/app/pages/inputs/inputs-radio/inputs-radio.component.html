@@ -1,0 +1,61 @@
+<div class="bg-primary text-light p-3 mb-4">
+  <div class="container">
+
+    <h1 class="display-3" appFocusOnLoad>
+      Radios
+    </h1>
+
+    <p class="lead">
+      The often misunderstood multiple choice component.
+    </p>
+
+    <p>
+      So what are the rules for radios:
+    </p>
+
+    <ol>
+      <li>They must be announced as a group.</li>
+      <li>The group must be described by "question".</li>
+      <li>Each radio must describe a unique answer (values can be duplicated)</li>
+      <li>Each radio must announce it's position in the list (e.g 1 of 4)</li>
+      <li>Each radio must announce it's selected status</li>
+    </ol>
+
+    <p>
+      <em>
+        It seems that if radios are off the bottom of the screen that Voiceover on iOS cant access them,
+        as such a button is required off screen.
+      </em>
+    </p>
+
+  </div>
+</div>
+
+<div class="container">
+  <form>
+    <fieldset class="mb-3">
+      <legend>Please Select an item</legend>
+
+      <div class="form-check">
+        <input class="form-check-input" name="radio" id="input-one" type="radio" value="One"/>
+        <label class="form-check-label" for="input-one">Item One</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" name="radio" id="input-two" type="radio" value="Two"/>
+        <label class="form-check-label" for="input-two">Item Two</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" name="radio" id="input-three" type="radio" value="Three"/>
+        <label class="form-check-label" for="input-three">Item Three</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" name="radio" id="input-four" type="radio" value="Four"/>
+        <label class="form-check-label" for="input-four">Item Four</label>
+      </div>
+    </fieldset>
+
+
+<!--    <button class="btn btn-primary" type="button">Button</button>-->
+
+  </form>
+</div>

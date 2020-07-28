@@ -12,13 +12,16 @@ import {
   TemplateRef,
   ViewChild,
 } from '@angular/core';
+
+import {TemplatePortal} from '@angular/cdk/portal';
+import {CdkTrapFocus} from '@angular/cdk/a11y';
+import {hideOthers} from 'aria-hidden';
+
+import {ModalPortalService} from '../modal-portal/modal-portal.service';
 import {ModalTitleDirective} from './modal-title.directive';
 import {ModalFooterDirective} from './modal-footer.directive';
-import {CdkTrapFocus} from '@angular/cdk/a11y';
-
-import {hideOthers} from 'aria-hidden';
-import {ModalPortalService} from '../modal-portal/modal-portal.service';
-import {TemplatePortal} from '@angular/cdk/portal';
+import {timer} from 'rxjs';
+import {filter, take, tap} from 'rxjs/operators';
 
 let instanceId = 0;
 
@@ -48,6 +51,10 @@ export class ModalComponent implements OnChanges, OnDestroy {
 
   templatePortal: TemplatePortal;
 
+  trapFocusCheck = timer()
+    .pipe(filter(() => Boolean(this.trapFocus)))
+    .pipe(take(1));
+
   private unhideOthers: () => void;
 
   @HostListener('window:keydown', ['$event'])
@@ -56,7 +63,6 @@ export class ModalComponent implements OnChanges, OnDestroy {
       this.emitClose();
     }
   }
-
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.open?.currentValue) {
@@ -75,8 +81,11 @@ export class ModalComponent implements OnChanges, OnDestroy {
     this.attachPortal();
     this.unhideOthers = hideOthers(this.modalPortalService.portalHost.nativeElement);
 
-    setTimeout(() => this.trapFocus.enabled = true);
-    setTimeout(async () => await this.trapFocus.focusTrap.focusInitialElementWhenReady(), 50);
+    this.trapFocusCheck
+      .subscribe(() => {
+        this.trapFocus.enabled = true
+        return this.trapFocus.focusTrap.focusInitialElementWhenReady();
+      });
   }
 
   closeAndDetach(): void {

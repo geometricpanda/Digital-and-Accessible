@@ -32,67 +32,80 @@
     your vulnerable customers deserve equal treatment. BUT... then you've got the challenge of screen readers.
   </p>
 
-  <div class="row">
+  <div class="row justify-content-center my-5">
+    <div class="col-12 col-md-10">
 
-    <div class="col-12 col-md-6 mb-3">
-      <div class="card h-100 bg-dark text-light">
-        <div class="card-body">
-          <h4 class="card-title">JAWS</h4>
-          <p>
-            It's the de facto standard for Windows, this may be more for historic reasons than functional ones, however
-            JAWS has this great quirk which means it behaves differently depending on which version number you're using.
-          </p>
+      <div class="list-group" role="table">
+
+        <div class="list-group-item" role="row">
+          <div class="d-flex w-100 justify-content-between" role="rowheader">
+            <strong class="mb-1">JAWS</strong>
+          </div>
+
+          <div role="cell">
+            <p class="mb-1">
+              It's the de facto standard for Windows, this may be more for historic reasons than functional
+              ones, however JAWS has this great quirk which means it behaves differently depending on which version
+              number
+              you're using.
+            </p>
+          </div>
         </div>
-      </div>
-    </div>
 
-    <div class="col-12 col-md-6 mb-3">
-      <div class="card h-100 bg-dark text-light">
-        <div class="card-body">
-          <h4 class="card-title">NVDA</h4>
-          <p>
-            I guess as a response to the rather high price tag attached to JAWS, NVDA was developed as an open source
-            project, it's comprehensive and has a nifty developer tool allowing you to read what it's speaking, saving
-            you from the never ending sound of a generated voice.</p>
+        <div class="list-group-item" role="row" >
+          <div class="d-flex w-100 justify-content-between" role="rowheader">
+            <strong class="mb-1">NVDA</strong>
+          </div>
+
+          <div role="cell">
+            <p class="mb-1">
+              I guess as a response to the rather high price tag attached to JAWS, NVDA was developed as an open source
+              project, it's comprehensive and has a nifty developer tool allowing you to read what it's speaking, saving
+              you from the never ending sound of a generated voice.
+            </p>
+          </div>
         </div>
-      </div>
-    </div>
 
-    <div class="col-12 col-md-6 mb-3">
-      <div class="card h-100 bg-dark text-light">
-        <div class="card-body">
-          <h4 class="card-title">VoiceOver</h4>
-          <p>
-            Apple's fantastic screen reader with bundles of functionality across all of their devices, which of course
-            behaves differently depending which version of MacOS you're on, and of course which version of iOS you're
-            on, and completely differently on your Mac vs an iPhone, and even differently between Safari on Mac and
-            Chrome on Mac, with no reliable iOS simulator.</p>
+        <div class="list-group-item" role="row">
+          <div class="d-flex w-100 justify-content-between" role="rowheader">
+            <strong class="mb-1">VoiceOver</strong>
+          </div>
 
-          <p>And lets not even get to the fact that the MacOS shortcut key is on the touch bar.</p>
+          <div role="cell">
+            <p>
+              Apple's fantastic screen reader with bundles of functionality across all of their devices, which of course
+              behaves differently depending which version of MacOS you're on, and of course which version of iOS you're
+              on, and completely differently on your Mac vs an iPhone, and even differently between Safari on Mac and
+              Chrome on Mac, with no reliable iOS simulator.</p>
+
+            <p class="mb-1 ">And lets not even get to the fact that the MacOS shortcut key is on the touch bar.</p>
+          </div>
         </div>
-      </div>
-    </div>
 
-    <div class="col-12 col-md-6 mb-3">
-      <div class="card h-100 bg-dark text-light">
-        <div class="card-body">
-          <h4 class="card-title">TalkBack</h4>
-          <p>
-            The Android screen reader which absolutely behaves completely differently depending on Android version,
-            which device you're using, which app you're using, and frankly if it feels like behaving that day.</p>
-          <p>
-            Personally, I've found it pretty solid when developing and testing with it, but as I don't use it day-in
-            day-out I simply have to defer to what I'm told.</p>
+        <div class="list-group-item" role="row">
+          <div class="d-flex w-100 justify-content-between" role="rowheader">
+            <strong class="mb-1">TalkBack</strong>
+          </div>
+          <div role="cell">
+            <p>
+              The Android screen reader which absolutely behaves completely differently depending on Android version,
+              which device you're using, which app you're using, and frankly if it feels like behaving that day.</p>
+            <p class="mb-1">
+              Personally, I've found it pretty solid when developing and testing with it, but as I don't use it day-in
+              day-out I simply have to defer to what I'm told.</p>
+          </div>
         </div>
-      </div>
 
+      </div>
 
     </div>
   </div>
 
+
   <p>
     Surely, when developing these screen readers, they'd cast a thought towards the web and have the screen reader
-    track what the user has focus on, maybe even work with the W3C to get some features built into the spec specifically
+    track what the user has focus on, maybe even work with the W3C to get some features built into the spec
+    specifically
     for screen readers ... that'd be novel!
   </p>
 

@@ -31,56 +31,54 @@
   </p>
 
   <div class="row">
+
     <div class="col-12 col-md-4 mb-3">
-      <div class="card h-100 bg-dark text-light">
-        <div class="card-header bg-dark text-light">
-          Modal
-        </div>
+      <a routerLink="single-modal" class="card h-100 text-decoration-none text-dark">
+        <div class="card-header bg-primary text-light">Single Modal</div>
         <div class="card-body">
-          <p>
+          <p class="mb-0">
             On our modal we're expecting functionality that it opens on top of the page, moves keyboard (and screen
             reader) focus into it, and that the focus can't escape out.
           </p>
         </div>
-        <div class="card-footer">
-          <a routerLink="single-modal" class="card-link link-light">Single</a>
-          <a routerLink="multiple-modals" class="card-link link-light">Multiple</a>
+        <div class="card-footer border-top-0 bg-transparent text-decoration-underline">
+          See Example
         </div>
-      </div>
+      </a>
     </div>
     <div class="col-12 col-md-4 mb-3">
-      <div class="card h-100 bg-dark text-light">
-        <div class="card-header bg-dark text-light">
+      <a routerLink="multiple-modals" class="card h-100 text-decoration-none text-dark">
+        <div class="card-header bg-primary text-light">Multiple Modals</div>
+        <div class="card-body">
+          <p class="mb-0">
+            Having multiple modals on the same page can cause issues, so this example shows how you can avoid them.
+          </p>
+        </div>
+        <div class="card-footer border-top-0 bg-transparent text-decoration-underline">
+          See Example
+        </div>
+      </a>
+    </div>
+
+    <div class="col-12 col-md-4 mb-3">
+      <a routerLink="dialog" class="card h-100 text-decoration-none text-dark">
+        <div class="card-header bg-primary text-light">
           Dialog
         </div>
         <div class="card-body">
-          <p>
+          <p class="mb-0">
             A dialog is similar functionally to a modal, except it doesnt have the ability to be closed by the user.
-          </p>
-          <p>
-            The user fundamentally needs to interact with content in the modal to be able to doClose it.
+            The user needs to interact with content in the modal to be able to close it.
           </p>
         </div>
-        <div class="card-footer">
-          <a routerLink="dialog" class="card-link link-light">Dialog</a>
+        <div class="card-footer border-top-0 bg-transparent text-decoration-underline">
+          See Example
         </div>
-      </div>
-    </div>
-    <div class="col-12 col-md-4 mb-3">
-      <div class="card h-100 bg-dark text-light">
-        <div class="card-header bg-dark text-light">
-          Interstitial
-        </div>
-        <div class="card-body">
-          <p>
-            Interstitial modals are quite the different beast, they're opened and closed programmatically without user
-            interaction. Usually after a fixed amount of time.
-          </p>
-        </div>
-      </div>
+      </a>
     </div>
 
   </div>
+
 
   <p>
     Each of these patterns has a unique set of functional requirements, and whilst they share a common set of
