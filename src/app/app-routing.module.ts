@@ -17,10 +17,16 @@ const definitionLists: Route = {
   loadChildren: () => import('./pages/lists/lists.module').then(mod => mod.ListsModule),
 };
 
+const inputs: Route = {
+  path: 'inputs',
+  loadChildren: () => import('./pages/inputs/inputs.module').then(mod => mod.InputsModule),
+};
+
 const routes: Routes = [
   home,
   modals,
   definitionLists,
+  inputs,
 ];
 
 @NgModule({
