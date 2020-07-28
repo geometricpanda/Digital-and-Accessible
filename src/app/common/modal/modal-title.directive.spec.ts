@@ -1,4 +1,4 @@
-import { ModalTitleDirective } from './modal-title.directive';
+import {ModalTitleDirective} from './modal-title.directive';
 
 describe('ModalTitleDirective', () => {
   it('should create an instance', () => {

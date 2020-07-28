@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-dialog',
@@ -9,12 +9,6 @@ export class DialogComponent {
 
   modalState = false;
 
-  toggleModal() {
-    this.modalState
-      ? this.closeModal()
-      : this.openModal();
-  }
-
   openModal() {
     this.modalState = true;
   }
@@ -22,6 +16,5 @@ export class DialogComponent {
   closeModal() {
     this.modalState = false;
   }
-
 
 }

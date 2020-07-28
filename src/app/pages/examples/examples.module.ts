@@ -7,7 +7,8 @@ import {MultipleModalsComponent} from './multiple-modals/multiple-modals.compone
 import {InterstitialComponent} from './interstitial/interstitial.component';
 import {ExamplesComponent} from './examples/examples.component';
 import {ModalModule} from '../../common/modal/modal.module';
-import { DialogComponent } from './dialog/dialog.component';
+import {DialogComponent} from './dialog/dialog.component';
+import {FocusOnLoadModule} from '../../common/focus-on-load/focus-on-load.module';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { DialogComponent } from './dialog/dialog.component';
     CommonModule,
     ExamplesRoutingModule,
     ModalModule,
+    FocusOnLoadModule,
   ],
 })
 export class ExamplesModule {

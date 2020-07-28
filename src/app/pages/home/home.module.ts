@@ -4,6 +4,7 @@ import {CommonModule} from '@angular/common';
 import {HomeComponent} from './home.component';
 import {HeaderModule} from '../../common/header/header.module';
 import {HomeRoutingModule} from './home-routing.module';
+import {FocusOnLoadModule} from '../../common/focus-on-load/focus-on-load.module';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import {HomeRoutingModule} from './home-routing.module';
   imports: [
     CommonModule,
     HeaderModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    FocusOnLoadModule,
   ],
 })
 export class HomeModule {

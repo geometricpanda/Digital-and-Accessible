@@ -3,6 +3,7 @@ import {Route, RouterModule, Routes} from '@angular/router';
 import {ExamplesComponent} from './examples/examples.component';
 import {SingleModalComponent} from './single-modal/single-modal.component';
 import {DialogComponent} from './dialog/dialog.component';
+import {MultipleModalsComponent} from './multiple-modals/multiple-modals.component';
 
 const home: Route = {
   path: '',
@@ -14,6 +15,11 @@ const singleModal: Route = {
   component: SingleModalComponent,
 }
 
+const multipleModals: Route = {
+  path: 'multiple-modals',
+  component: MultipleModalsComponent,
+}
+
 const dialog: Route = {
   path: 'dialog',
   component: DialogComponent,
@@ -22,6 +28,7 @@ const dialog: Route = {
 const routes: Routes = [
   home,
   singleModal,
+  multipleModals,
   dialog,
 ];
 

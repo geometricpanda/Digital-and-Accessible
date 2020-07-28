@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-single-modal',
@@ -8,12 +8,6 @@ import {Component, OnInit} from '@angular/core';
 export class SingleModalComponent {
 
   modalState = false;
-
-  toggleModal() {
-    this.modalState
-      ? this.closeModal()
-      : this.openModal();
-  }
 
   openModal() {
     this.modalState = true;

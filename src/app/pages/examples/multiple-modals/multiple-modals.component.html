@@ -1,1 +1,90 @@
-<p>multiple-modals works!</p>
+<div class="bg-primary text-light p-3 pb-5 mb-4">
+  <div class="container">
+
+    <h1 class="display-3" appFocusOnLoad>
+      Multiple Modals
+    </h1>
+
+    <p class="lead">
+      This is a single modal which is sitting on-top of content.
+    </p>
+
+    <p>
+      Whilst the modal is open, you wont be able to leave it unless you dismiss it by clicking on the close button
+      or the background.
+    </p>
+
+      <button class="btn btn-light mr-1" (click)="openModal(0)" #triggerFirst>Click to Open First</button>
+      <button class="btn btn-light mr-1" (click)="openModal(1)" #triggerSecond>Click to Open Second</button>
+      <button class="btn btn-light" (click)="openModal(2)" #triggerThird>Click to Open Third</button>
+
+  </div>
+</div>
+
+
+<app-modal [open]="modalState[0]"
+           (close)="closeModal(0)"
+           [returnFocusTo]="triggerFirst"
+           [showBackdrop]="true">
+
+  <ng-container appModalTitle>
+    Jabberwocky 1
+  </ng-container>
+
+  <p>’Twas brillig, and the slithy toves
+    Did gyre and gimble in the wabe:
+    All mimsy were the borogoves,
+    And the mome raths outgrabe.</p>
+
+  <p>“Beware the Jabberwock, my son!
+    The jaws that bite, the claws that catch!
+    Beware the Jubjub bird, and shun
+    The frumious Bandersnatch!”</p>
+
+</app-modal>
+
+
+<app-modal [open]="modalState[1]"
+           (close)="closeModal(1)"
+           [returnFocusTo]="triggerSecond"
+           [showBackdrop]="true">
+
+  <ng-container appModalTitle>
+    Jabberwocky 2
+  </ng-container>
+
+  <p>’Twas brillig, and the slithy toves
+    Did gyre and gimble in the wabe:
+    All mimsy were the borogoves,
+    And the mome raths outgrabe.</p>
+
+  <p>“Beware the Jabberwock, my son!
+    The jaws that bite, the claws that catch!
+    Beware the Jubjub bird, and shun
+    The frumious Bandersnatch!”</p>
+
+</app-modal>
+
+
+
+<app-modal [open]="modalState[2]"
+           (close)="closeModal(2)"
+           [returnFocusTo]="triggerThird"
+           [showBackdrop]="true">
+
+  <ng-container appModalTitle>
+    Jabberwocky 3
+  </ng-container>
+
+  <p>’Twas brillig, and the slithy toves
+    Did gyre and gimble in the wabe:
+    All mimsy were the borogoves,
+    And the mome raths outgrabe.</p>
+
+  <p>“Beware the Jabberwock, my son!
+    The jaws that bite, the claws that catch!
+    Beware the Jubjub bird, and shun
+    The frumious Bandersnatch!”</p>
+
+</app-modal>
+

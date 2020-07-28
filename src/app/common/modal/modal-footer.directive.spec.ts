@@ -1,4 +1,4 @@
-import { ModalFooterDirective } from './modal-footer.directive';
+import {ModalFooterDirective} from './modal-footer.directive';
 
 describe('ModalFooterDirective', () => {
   it('should create an instance', () => {

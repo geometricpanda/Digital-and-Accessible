@@ -1,15 +1,16 @@
 import {
   Component,
-  Input,
-  OnInit,
-  Output,
-  EventEmitter,
   ContentChild,
-  ViewChild,
-  OnChanges,
-  SimpleChanges,
   ElementRef,
-  HostListener, TemplateRef, OnDestroy,
+  EventEmitter,
+  HostListener,
+  Input,
+  OnChanges,
+  OnDestroy,
+  Output,
+  SimpleChanges,
+  TemplateRef,
+  ViewChild,
 } from '@angular/core';
 import {ModalTitleDirective} from './modal-title.directive';
 import {ModalFooterDirective} from './modal-footer.directive';
@@ -18,7 +19,6 @@ import {CdkTrapFocus} from '@angular/cdk/a11y';
 import {hideOthers} from 'aria-hidden';
 import {ModalPortalService} from '../modal-portal/modal-portal.service';
 import {TemplatePortal} from '@angular/cdk/portal';
-import {$e} from 'codelyzer/angular/styles/chars';
 
 @Component({
   selector: 'app-modal',

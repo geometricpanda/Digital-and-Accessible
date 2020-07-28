@@ -12,3 +12,8 @@ $container-max-widths: (
 );
 
 @import "~bootstrap/scss/bootstrap";
+
+
+.no-focus-outline:focus {
+  outline: none;
+}
