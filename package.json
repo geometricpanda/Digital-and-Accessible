@@ -1,5 +1,5 @@
 {
-  "name": "angular-modal-test",
+  "name": "accessible-content",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -8,10 +8,10 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "dev:ssr": "ng run angular-modal-test:serve-ssr",
-    "serve:ssr": "node dist/angular-modal-test/server/main.js",
-    "build:ssr": "ng build --prod && ng run angular-modal-test:server:production",
-    "prerender": "ng run angular-modal-test:prerender"
+    "dev:ssr": "ng run accessible-content:serve-ssr",
+    "serve:ssr": "node dist/accessible-content/server/main.js",
+    "build:ssr": "ng build --prod && ng run accessible-content:server:production",
+    "prerender": "ng run accessible-content:prerender"
   },
   "private": true,
   "dependencies": {

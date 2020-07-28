@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-modal-test": {
+    "accessible-content": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular-modal-test/browser",
+            "outputPath": "dist/accessible-content/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -66,18 +66,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-modal-test:build"
+            "browserTarget": "accessible-content:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular-modal-test:build:production"
+              "browserTarget": "accessible-content:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-modal-test:build"
+            "browserTarget": "accessible-content:build"
           }
         },
         "test": {
@@ -115,18 +115,18 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "angular-modal-test:serve"
+            "devServerTarget": "accessible-content:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "angular-modal-test:serve:production"
+              "devServerTarget": "accessible-content:serve:production"
             }
           }
         },
         "server": {
           "builder": "@angular-devkit/build-angular:server",
           "options": {
-            "outputPath": "dist/angular-modal-test/server",
+            "outputPath": "dist/accessible-content/server",
             "main": "server.ts",
             "tsConfig": "tsconfig.server.json"
           },
@@ -147,21 +147,21 @@
         "serve-ssr": {
           "builder": "@nguniversal/builders:ssr-dev-server",
           "options": {
-            "browserTarget": "angular-modal-test:build",
-            "serverTarget": "angular-modal-test:server"
+            "browserTarget": "accessible-content:build",
+            "serverTarget": "accessible-content:server"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular-modal-test:build:production",
-              "serverTarget": "angular-modal-test:server:production"
+              "browserTarget": "accessible-content:build:production",
+              "serverTarget": "accessible-content:server:production"
             }
           }
         },
         "prerender": {
           "builder": "@nguniversal/builders:prerender",
           "options": {
-            "browserTarget": "angular-modal-test:build:production",
-            "serverTarget": "angular-modal-test:server:production",
+            "browserTarget": "accessible-content:build:production",
+            "serverTarget": "accessible-content:server:production",
             "routesFile": "routes.txt"
           },
           "configurations": {
@@ -170,5 +170,5 @@
         }
       }
     }},
-  "defaultProject": "angular-modal-test"
+  "defaultProject": "accessible-content"
 }
