@@ -13,7 +13,6 @@ export class FocusOnLoadDirective implements OnInit {
 
   ngOnInit(): void {
     setTimeout(() => this.elRef.nativeElement.focus(), 50);
-    console.log('focus');
   }
 
 }

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DefinitionListsComponent } from './definition-lists.component';
+import { ListOrderedListComponent } from './list-ordered-list.component';
 
-describe('DefinitionListsHomeComponent', () => {
-  let component: DefinitionListsComponent;
-  let fixture: ComponentFixture<DefinitionListsComponent>;
+describe('ListOrderedListComponent', () => {
+  let component: ListOrderedListComponent;
+  let fixture: ComponentFixture<ListOrderedListComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DefinitionListsComponent ]
+      declarations: [ ListOrderedListComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DefinitionListsComponent);
+    fixture = TestBed.createComponent(ListOrderedListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
