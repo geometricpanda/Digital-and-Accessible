@@ -6,10 +6,11 @@ import { InputsHomeComponent } from './inputs-home/inputs-home.component';
 import {FocusOnLoadModule} from '../../common/focus-on-load/focus-on-load.module';
 import { InputsRadioComponent } from './inputs-radio/inputs-radio.component';
 import {FormsModule} from '@angular/forms';
+import { InputsCheckboxComponent } from './inputs-checkbox/inputs-checkbox.component';
 
 
 @NgModule({
-  declarations: [InputsHomeComponent, InputsRadioComponent],
+  declarations: [InputsHomeComponent, InputsRadioComponent, InputsCheckboxComponent],
   imports: [
     CommonModule,
     InputsRoutingModule,

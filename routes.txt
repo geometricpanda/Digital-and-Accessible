@@ -9,3 +9,4 @@
 /lists/description-list
 /inputs
 /inputs/radios
+/inputs/checkboxes
