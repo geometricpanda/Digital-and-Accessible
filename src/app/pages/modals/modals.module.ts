@@ -1,5 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
+import {A11yModule} from '@angular/cdk/a11y';
+
 
 import {ModalsRoutingModule} from './modals-routing.module';
 import {ModalsSingleModalComponent} from './modals-single-modal/modals-single-modal.component';
@@ -24,6 +26,7 @@ import {FocusOnLoadModule} from '../../common/focus-on-load/focus-on-load.module
     ModalsRoutingModule,
     ModalModule,
     FocusOnLoadModule,
+    A11yModule,
   ],
 })
 export class ModalsModule {
