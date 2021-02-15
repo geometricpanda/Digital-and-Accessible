@@ -1,0 +1,31 @@
+.custom-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.custom-list__item {
+  display: flex;
+
+  &::before {
+    position: static;
+    content : "";
+    flex-shrink: 0;
+    width: 0;
+    height: 0;
+    margin: 8px 8px 0 0;
+    border-color: #BF00CE;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 100%;
+    transform: translateY(50%);
+  }
+}
+
+.custom-marker-list {
+  padding-left: 14px;
+}
+
+.custom-marker-list__item::marker {
+  color: #BF00CE;
+  font-size: 12px;
+}

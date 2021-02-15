@@ -4,6 +4,7 @@ import {ListsHomeComponent} from './lists-home/lists-home.component';
 import {ListOrderedListComponent} from './list-ordered-list/list-ordered-list.component';
 import {ListUnorderedListComponent} from './list-unordered-list/list-unordered-list.component';
 import {ListDescriptionListComponent} from './list-description-list/list-description-list.component';
+import {ListUnordereredListCustomComponent} from './list-unorderered-list-custom/list-unorderered-list-custom.component';
 
 const home: Route = {
   path: '',
@@ -20,6 +21,11 @@ const unorderedList: Route = {
   component: ListUnorderedListComponent,
 };
 
+const customUnorderedList: Route = {
+  path: 'custom-unordered-list',
+  component: ListUnordereredListCustomComponent,
+};
+
 const descriptionList: Route = {
   path: 'description-list',
   component: ListDescriptionListComponent,
@@ -31,6 +37,7 @@ const routes: Routes = [
   orderedList,
   unorderedList,
   descriptionList,
+  customUnorderedList
 ];
 
 @NgModule({
