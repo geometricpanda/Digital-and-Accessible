@@ -16,12 +16,6 @@ export class SyntheticSelectComponent {
     return this.options.find(item => item.value === this.value);
   }
 
-  get focusIndex(): number {
-    return this.options
-      .toArray()
-      .findIndex(item => item === this.currentFocus);
-  }
-
   get hasValue(): boolean {
     return this.value !== false && !!this.selectedOption;
   }
@@ -31,40 +25,6 @@ export class SyntheticSelectComponent {
   placeholder = 'Please Select One';
   value;
 
-
-  focusNext(): void {
-    let nextFocusIndex = this.focusIndex + 1 || 0;
-
-    if (nextFocusIndex === this.options.length) {
-      nextFocusIndex = 0;
-    }
-
-    this.setFocussedOption(nextFocusIndex);
-  }
-
-  focusPrevious(): void {
-    let previousFocusIndex = this.focusIndex - 1;
-
-    if (previousFocusIndex === -1) {
-      previousFocusIndex = this.options.length - 1;
-    }
-
-    this.setFocussedOption(previousFocusIndex);
-  }
-
-  clearFocus(): void {
-    for (const option of this.options) {
-      option.hasFocus = false;
-    }
-    this.currentFocus = null;
-  }
-
-  setFocussedOption(index: number): void {
-    this.clearFocus();
-    this.currentFocus = this.options.toArray()[index];
-    this.currentFocus.hasFocus = true;
-  }
-
   commitValue(option: OptionComponent): void {
     this.value = option.value;
     this.close();
@@ -73,23 +33,12 @@ export class SyntheticSelectComponent {
 
   open(): void {
     this.isExpanded = true;
-
     setTimeout(() => this.listElement.nativeElement.focus(), 100);
-
-    // this.clearFocus();
-    //
-    // if (this.selectedOption) {
-    //   this.selectedOption.hasFocus = true;
-    //   this.currentFocus = this.selectedOption;
-    // } else {
-    //   this.setFocussedOption(0);
-    // }
-    //
   }
 
   close(): void {
     this.isExpanded = false;
-    setTimeout(() => this.buttonElement.nativeElement.focus(), 100);
+    setTimeout(() => this.buttonElement.nativeElement.focus(), 200);
   }
 
   onBlur(): void {

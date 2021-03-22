@@ -4,6 +4,7 @@ import {CommonModule} from '@angular/common';
 
 import {SyntheticSelectComponent} from './synthetic-select.component';
 import {OptionComponent} from './option.component';
+import {A11yModule} from '@angular/cdk/a11y';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import {OptionComponent} from './option.component';
   imports: [
     CommonModule,
     FormsModule,
+    A11yModule,
   ],
   exports: [
     SyntheticSelectComponent,
