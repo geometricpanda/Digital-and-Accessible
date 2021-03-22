@@ -1,4 +1,4 @@
-import {Component, ContentChildren, QueryList} from '@angular/core';
+import {Component, ContentChildren, ElementRef, QueryList, TemplateRef, ViewChild} from '@angular/core';
 import {OptionComponent} from './option.component';
 
 @Component({
@@ -9,6 +9,7 @@ import {OptionComponent} from './option.component';
 export class SyntheticSelectComponent {
 
   @ContentChildren(OptionComponent) options: QueryList<OptionComponent>;
+  @ViewChild('buttonElement') buttonElement: ElementRef<HTMLButtonElement>;
 
   get selectedOption(): OptionComponent {
     return this.options.find(item => item.value === this.value);
@@ -85,6 +86,11 @@ export class SyntheticSelectComponent {
 
   close(): void {
     this.isExpanded = false;
+    this.buttonElement.nativeElement.focus();
+  }
+
+  onBlur(): void {
+    this.isExpanded = false;
   }
 
   onKeyDown($event: KeyboardEvent): void {
@@ -98,14 +104,17 @@ export class SyntheticSelectComponent {
   }
 
   onExpandedKeyDown($event: KeyboardEvent): void {
-
     const {code} = $event;
 
     switch (code) {
       case  'ArrowUp':
+      case  'Up':
+        $event.preventDefault();
         this.focusPrevious();
         break;
       case 'ArrowDown':
+      case 'Down':
+        $event.preventDefault();
         this.focusNext();
         break;
       case 'Enter':
@@ -113,21 +122,23 @@ export class SyntheticSelectComponent {
         this.commitValue();
         break;
       case 'Escape':
+        $event.preventDefault();
         this.close();
         break;
     }
 
   }
 
-
   onContractedKeyDown($event: KeyboardEvent): void {
-
     const {code} = $event;
 
     switch (code) {
+      case 'Space':
       case 'Enter':
       case 'ArrowDown':
       case 'ArrowUp':
+      case 'Up':
+      case 'Down':
         $event.preventDefault();
         this.open();
         break;

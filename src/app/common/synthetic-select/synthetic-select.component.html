@@ -3,24 +3,24 @@
     <label class="form-label" id="label">Dropdown select without text input</label>
   </div>
 
-  <div>
-    <button class="btn btn-secondary dropdown-toggle"
-            id="button"
-            type="button"
-            aria-controls="list"
-            aria-haspopup="listbox"
-            aria-labelledby="label button"
-            [attr.aria-expanded]="isExpanded"
-            (keydown)="onKeyDown($event)"
-            (click)="toggleExpanded()">
-      {{
-      hasValue
-        ? selectedOption.content
-        : placeholder
-      }}
-    </button>
-  </div>
-
+  <button #buttonElement
+          class="btn btn-secondary dropdown-toggle"
+          id="button"
+          type="button"
+          aria-controls="list"
+          aria-haspopup="listbox"
+          aria-labelledby="label button"
+          [attr.aria-expanded]="isExpanded"
+          (keydown)="onKeyDown($event)"
+          (click)="toggleExpanded()"
+          (blur)="onBlur()"
+  >
+    {{
+    hasValue
+      ? selectedOption.content
+      : placeholder
+    }}
+  </button>
 
   <ul id="list"
       role="listbox"
