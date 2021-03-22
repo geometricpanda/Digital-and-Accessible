@@ -12,14 +12,10 @@
           aria-haspopup="listbox"
           aria-labelledby="label button"
           [attr.aria-expanded]="isExpanded"
-          (keydown)="onKeyDown($event)"
+          (keydown)="onButtonKeyDown($event)"
           (click)="toggleExpanded()"
   >
-    {{
-    hasValue
-      ? selectedOption.content
-      : placeholder
-    }}
+    {{    hasValue ? selectedOption.content : placeholder    }}
   </button>
 
 
@@ -32,12 +28,12 @@
       tabindex="-1">
 
     <ng-container *ngFor="let option of options; let i = index">
-      <li [id]="option.id"
+      <li #listItem
           role="option"
           tabindex="0"
-          (keydown)="onListKeyDown($event, option)"
-          (focus)="option.hasFocus = true"
-          (blur)="option.hasFocus = false"
+          [id]="option.id"
+          (focus)="onListItemFocus(listItem)"
+          (keydown)="onListItemKeyDown($event, option)"
           (click)="commitValue(option)">
 
         <span class="dropdown-item"
