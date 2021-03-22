@@ -70,12 +70,12 @@ export class SyntheticSelectComponent {
     this.close();
   }
 
+
   open(): void {
     this.isExpanded = true;
 
     setTimeout(() => this.listElement.nativeElement.focus(), 100);
 
-    console.log(this.listElement);
     // this.clearFocus();
     //
     // if (this.selectedOption) {
@@ -89,7 +89,7 @@ export class SyntheticSelectComponent {
 
   close(): void {
     this.isExpanded = false;
-    this.buttonElement.nativeElement.focus();
+    setTimeout(() => this.buttonElement.nativeElement.focus(), 100);
   }
 
   onBlur(): void {
@@ -97,17 +97,21 @@ export class SyntheticSelectComponent {
   }
 
   onKeyDown($event: KeyboardEvent): void {
-    if (this.isExpanded) {
-      this.onExpandedKeyDown($event);
-    } else {
-      this.onContractedKeyDown($event);
+    const {code} = $event;
+
+    switch (code) {
+      case 'Space':
+      case 'Enter':
+        $event.preventDefault();
+        this.open();
+        break;
     }
 
   }
 
-  onExpandedKeyDown($event: KeyboardEvent): void {
-    const {code} = $event;
 
+  onListKeyDown($event: KeyboardEvent, option: OptionComponent): void {
+    const {code} = $event;
     switch (code) {
       // case  'ArrowUp':
       // case  'Up':
@@ -119,29 +123,15 @@ export class SyntheticSelectComponent {
       //   $event.preventDefault();
       //   this.focusNext();
       //   break;
+      case 'Enter':
+        $event.preventDefault();
+        this.commitValue(option);
+        break;
       case 'Escape':
         $event.preventDefault();
         this.close();
         break;
     }
-
-  }
-
-  onContractedKeyDown($event: KeyboardEvent): void {
-    const {code} = $event;
-
-    switch (code) {
-      case 'Space':
-      case 'Enter':
-        // case 'ArrowDown':
-        // case 'ArrowUp':
-        // case 'Up':
-        // case 'Down':
-        $event.preventDefault();
-        this.open();
-        break;
-    }
-
   }
 
   toggleExpanded(): void {

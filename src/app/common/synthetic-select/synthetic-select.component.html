@@ -35,6 +35,7 @@
       <li [id]="option.id"
           role="option"
           tabindex="0"
+          (keydown)="onListKeyDown($event, option)"
           (focus)="option.hasFocus = true"
           (blur)="option.hasFocus = false"
           (click)="commitValue(option)">
