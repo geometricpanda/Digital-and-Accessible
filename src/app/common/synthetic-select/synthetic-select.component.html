@@ -22,27 +22,30 @@
     }}
   </button>
 
-  <ul id="list"
-      role="listbox"
+  <div id="list"
+       role="listbox"
+       [attr.aria-activedescendant]="hasValue ? selectedOption.id : null">
+
+    <ul
       class="dropdown-menu"
       [class.show]="isExpanded"
-      [attr.aria-activedescendant]="hasValue ? selectedOption.id : null"
       tabindex="-1">
 
-    <ng-container *ngFor="let option of options; let i = index">
-      <li [id]="option.id"
-          role="option"
-          (click)="commitValue(option)"
-      >
+      <ng-container *ngFor="let option of options; let i = index">
+        <li [id]="option.id"
+            role="option"
+            (click)="commitValue(option)"
+        >
 
         <span class="dropdown-item"
               [class.active]="option.hasFocus">
           {{option.value}} - {{option.content}}
         </span>
 
-      </li>
-    </ng-container>
+        </li>
+      </ng-container>
 
-  </ul>
+    </ul>
+  </div>
 
 </div>

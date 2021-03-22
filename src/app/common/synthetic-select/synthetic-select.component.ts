@@ -86,7 +86,7 @@ export class SyntheticSelectComponent {
 
   close(): void {
     this.isExpanded = false;
-    this.buttonElement.nativeElement.focus();
+    setTimeout(() => this.buttonElement.nativeElement.focus(), 100);
   }
 
   onBlur(): void {
