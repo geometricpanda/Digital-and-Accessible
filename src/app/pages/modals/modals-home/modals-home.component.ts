@@ -6,13 +6,7 @@ import {LiveAnnouncer} from '@angular/cdk/a11y';
   templateUrl: './modals-home.component.html',
   styleUrls: ['./modals-home.component.scss'],
 })
-export class ModalsHomeComponent implements OnInit {
+export class ModalsHomeComponent {
 
-  constructor(private liveAnnouncer: LiveAnnouncer) {
-  }
-
-  ngOnInit() {
-    this.liveAnnouncer.announce('Hello Abi', 'polite', 30000)
-  }
 
 }
