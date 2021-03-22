@@ -11,3 +11,4 @@
 /inputs
 /inputs/radios
 /inputs/checkboxes
+/inputs/synthetic-select
