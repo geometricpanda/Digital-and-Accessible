@@ -10,6 +10,7 @@ export class SyntheticSelectComponent {
 
   @ContentChildren(OptionComponent) options: QueryList<OptionComponent>;
   @ViewChild('buttonElement') buttonElement: ElementRef<HTMLButtonElement>;
+  @ViewChild('listElement') listElement: ElementRef<HTMLUListElement>;
 
   get selectedOption(): OptionComponent {
     return this.options.find(item => item.value === this.value);
@@ -64,29 +65,31 @@ export class SyntheticSelectComponent {
     this.currentFocus.hasFocus = true;
   }
 
-  commitValue(option: OptionComponent = this.currentFocus): void {
-    if (option) {
-      this.value = option.value;
-    }
+  commitValue(option: OptionComponent): void {
+    this.value = option.value;
     this.close();
   }
 
   open(): void {
-    this.clearFocus();
-
-    if (this.selectedOption) {
-      this.selectedOption.hasFocus = true;
-      this.currentFocus = this.selectedOption;
-    } else {
-      this.setFocussedOption(0);
-    }
-
     this.isExpanded = true;
+
+    setTimeout(() => this.listElement.nativeElement.focus(), 100);
+
+    console.log(this.listElement);
+    // this.clearFocus();
+    //
+    // if (this.selectedOption) {
+    //   this.selectedOption.hasFocus = true;
+    //   this.currentFocus = this.selectedOption;
+    // } else {
+    //   this.setFocussedOption(0);
+    // }
+    //
   }
 
   close(): void {
     this.isExpanded = false;
-    setTimeout(() => this.buttonElement.nativeElement.focus(), 100);
+    this.buttonElement.nativeElement.focus();
   }
 
   onBlur(): void {
@@ -94,7 +97,6 @@ export class SyntheticSelectComponent {
   }
 
   onKeyDown($event: KeyboardEvent): void {
-
     if (this.isExpanded) {
       this.onExpandedKeyDown($event);
     } else {
@@ -107,20 +109,16 @@ export class SyntheticSelectComponent {
     const {code} = $event;
 
     switch (code) {
-      case  'ArrowUp':
-      case  'Up':
-        $event.preventDefault();
-        this.focusPrevious();
-        break;
-      case 'ArrowDown':
-      case 'Down':
-        $event.preventDefault();
-        this.focusNext();
-        break;
-      case 'Enter':
-        $event.preventDefault();
-        this.commitValue();
-        break;
+      // case  'ArrowUp':
+      // case  'Up':
+      //   $event.preventDefault();
+      //   this.focusPrevious();
+      //   break;
+      // case 'ArrowDown':
+      // case 'Down':
+      //   $event.preventDefault();
+      //   this.focusNext();
+      //   break;
       case 'Escape':
         $event.preventDefault();
         this.close();
@@ -135,10 +133,10 @@ export class SyntheticSelectComponent {
     switch (code) {
       case 'Space':
       case 'Enter':
-      case 'ArrowDown':
-      case 'ArrowUp':
-      case 'Up':
-      case 'Down':
+        // case 'ArrowDown':
+        // case 'ArrowUp':
+        // case 'Up':
+        // case 'Down':
         $event.preventDefault();
         this.open();
         break;

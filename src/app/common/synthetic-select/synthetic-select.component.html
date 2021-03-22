@@ -1,6 +1,7 @@
-<div class="dropdown mt-5 ">
-  <div>
-    <label class="form-label" id="label">Dropdown select without text input</label>
+<div class="dropdown mt-5">
+
+  <div class="form-label" id="label" (click)="buttonElement.focus()">
+    Dropdown select without text input
   </div>
 
   <button #buttonElement
@@ -13,7 +14,6 @@
           [attr.aria-expanded]="isExpanded"
           (keydown)="onKeyDown($event)"
           (click)="toggleExpanded()"
-          (blur)="onBlur()"
   >
     {{
     hasValue
@@ -22,30 +22,31 @@
     }}
   </button>
 
-  <div id="list"
-       role="listbox"
-       [attr.aria-activedescendant]="hasValue ? selectedOption.id : null">
 
-    <ul
-      class="dropdown-menu"
+  <ul #listElement
+      id="list"
+      role="listbox"
+      [attr.aria-activedescendant]="hasValue ? selectedOption.id : null"
       [class.show]="isExpanded"
+      class="dropdown-menu"
       tabindex="-1">
 
-      <ng-container *ngFor="let option of options; let i = index">
-        <li [id]="option.id"
-            role="option"
-            (click)="commitValue(option)"
-        >
+    <ng-container *ngFor="let option of options; let i = index">
+      <li [id]="option.id"
+          role="option"
+          tabindex="0"
+          (focus)="option.hasFocus = true"
+          (blur)="option.hasFocus = false"
+          (click)="commitValue(option)">
 
         <span class="dropdown-item"
               [class.active]="option.hasFocus">
           {{option.value}} - {{option.content}}
         </span>
 
-        </li>
-      </ng-container>
+      </li>
+    </ng-container>
 
-    </ul>
-  </div>
+  </ul>
 
 </div>
