@@ -1,0 +1,22 @@
+.ordered-list {
+  display: list-item;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ordered-list__item {
+  list-style: decimal;
+  padding-left: 10px;
+  margin-left: 20px;
+}
+
+.ordered-list__item::before {
+  display: none;
+}
+
+.ordered-list__item::marker {
+  font-weight: bold;
+  color: inherit;
+}
+
